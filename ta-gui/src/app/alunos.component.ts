@@ -28,7 +28,6 @@ import { AlunoService } from './aluno.service';
                 },
                 msg => { alert(msg.message); }
               );
-       alert("Já executei o criar e o subscribe!");
     } 
 
     onMove(): void {
