@@ -5,7 +5,7 @@ export class CadastroDeAlunos {
 
     cadastrar(aluno: Aluno): Aluno {
      var result = null;
-     if (this.cpfNaoCadastrado(aluno.cpf)) {
+     if (this.cpfNaoCadastrado(aluno.cpf) && this.alunoIsValid(aluno)) {
        result = new Aluno();
        result.copyFrom(aluno);
        this.alunos.push(result);
@@ -25,5 +25,14 @@ export class CadastroDeAlunos {
 
     getAlunos(): Aluno[] {
      return this.alunos;
+   }
+
+   alunoIsValid(aluno: Aluno): boolean {
+     if(aluno.nome != null && aluno.cpf != null && aluno.email != null) {
+       return true;
+     }
+     else {
+       return false;
+     }
    }
 }
